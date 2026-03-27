@@ -1,9 +1,9 @@
-# lingvaddict-consent
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Согласие на публикацию | LingvAddict</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -39,7 +39,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 32px 20px;
+      padding: 15px; /* Уменьшил padding для мобильных */
       position: relative;
       overflow-x: hidden;
     }
@@ -55,79 +55,47 @@
       pointer-events: none;
     }
 
-    /* Точечная сетка */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(107,33,168,.08) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
-    }
-
     .card {
       background: var(--card);
-      border-radius: 28px;
+      border-radius: 24px;
       padding: 0;
-      max-width: 480px;
+      max-width: 450px;
       width: 100%;
-      box-shadow:
-        0 32px 80px rgba(107,33,168,.12),
-        0 2px 8px rgba(0,0,0,.04),
-        inset 0 0 0 1px rgba(107,33,168,.06);
+      box-shadow: 0 20px 50px rgba(107,33,168,.12);
       animation: rise .6s cubic-bezier(.22,.68,0,1.12) both;
       position: relative;
       overflow: hidden;
+      z-index: 10;
     }
 
     @keyframes rise {
-      from { opacity: 0; transform: translateY(32px) scale(.97); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Верхняя полоса — фирменный градиент */
     .card-header {
       background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 60%, #A855F7 100%);
-      padding: 32px 36px 28px;
+      padding: 25px 20px; /* Уменьшил отступы */
       position: relative;
       overflow: hidden;
-    }
-
-    .card-header::before {
-      content: '';
-      position: absolute;
-      top: -30px; right: -30px;
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.06);
-    }
-
-    .card-header::after {
-      content: '';
-      position: absolute;
-      bottom: -20px; left: 40px;
-      width: 100px; height: 100px;
-      border-radius: 50%;
-      background: rgba(201,168,76,.12);
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 22px;
+      margin-bottom: 15px;
       position: relative;
       z-index: 1;
     }
 
     .logo-mark {
-      width: 36px; height: 36px;
+      width: 32px; height: 32px;
       background: rgba(255,255,255,.15);
-      border: 1.5px solid rgba(255,255,255,.3);
-      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      backdrop-filter: blur(4px);
+      font-size: 16px;
     }
 
     .logo-name {
@@ -135,142 +103,106 @@
       font-size: 18px;
       font-weight: 700;
       color: #fff;
-      letter-spacing: .3px;
-    }
-
-    .logo-name span {
-      color: var(--gold);
-    }
-
-    .hero-section {
-      position: relative;
-      z-index: 1;
     }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-block;
       background: rgba(201,168,76,.2);
       border: 1px solid rgba(201,168,76,.35);
       border-radius: 50px;
-      padding: 4px 12px;
-      font-size: 12px;
+      padding: 3px 10px;
+      font-size: 10px;
       font-weight: 600;
       color: #FDF0C0;
-      letter-spacing: .4px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .card-header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       color: #fff;
-      line-height: 1.4;
-      margin-bottom: 10px;
+      line-height: 1.3;
+      margin-bottom: 8px;
     }
 
     .card-header p {
-      font-size: 14px;
-      color: rgba(255,255,255,.75);
-      line-height: 1.65;
-      font-weight: 400;
+      font-size: 13px;
+      color: rgba(255,255,255,.85);
+      line-height: 1.5;
     }
 
-    /* Тело карточки */
     .card-body {
-      padding: 28px 36px 32px;
+      padding: 20px;
     }
 
-    /* Блок «Где публикуем» */
     .platforms {
       background: var(--purple-light);
-      border: 1px solid rgba(107,33,168,.12);
+      border: 1px solid rgba(107,33,168,.1);
       border-radius: 16px;
-      padding: 16px 18px;
-      margin-bottom: 24px;
+      padding: 15px;
+      margin-bottom: 20px;
     }
 
     .platforms-label {
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
       color: var(--purple);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .platform-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 10px;
+    }
+
+    /* На очень маленьких экранах делаем в одну колонку */
+    @media (max-width: 360px) {
+      .platform-grid { grid-template-columns: 1fr; }
     }
 
     .platform-item {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 13px;
+      gap: 6px;
+      font-size: 12px;
       font-weight: 500;
       color: var(--text);
-    }
-
-    .platform-item .ico {
-      font-size: 16px;
-      width: 20px;
-      text-align: center;
     }
 
     .privacy-note {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      padding-top: 10px;
+      gap: 6px;
+      margin-top: 8px;
+      padding-top: 8px;
       border-top: 1px solid rgba(107,33,168,.1);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
-      font-weight: 500;
       grid-column: 1 / -1;
     }
 
-    /* Поля ввода */
-    .fields { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+    .fields { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
 
-    .field-group { display: flex; flex-direction: column; gap: 6px; }
+    .field-group { display: flex; flex-direction: column; gap: 4px; }
 
-    .field-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: .2px;
-    }
-
-    .field-label .req { color: var(--red); margin-left: 2px; }
-    .field-label .opt {
-      color: var(--muted);
-      font-weight: 400;
-      font-size: 11px;
-      margin-left: 5px;
-    }
+    .field-label { font-size: 12px; font-weight: 600; color: var(--text); }
+    .field-label .req { color: var(--red); }
 
     .field-input {
-      font-family: 'DM Sans', sans-serif;
+      font-family: inherit;
       font-size: 15px;
-      font-weight: 500;
-      color: var(--text);
       background: var(--cream);
       border: 1.5px solid rgba(107,33,168,.15);
       border-radius: 12px;
-      padding: 12px 14px;
+      padding: 10px 12px;
       outline: none;
-      transition: border-color .2s, box-shadow .2s, background .2s;
       width: 100%;
+      -webkit-appearance: none; /* Убирает стандартные тени iOS */
     }
-
-    .field-input::placeholder { color: #C4B8D4; font-weight: 400; }
 
     .field-input:focus {
       border-color: var(--purple);
@@ -278,270 +210,110 @@
       box-shadow: 0 0 0 3px var(--purple-glow);
     }
 
-    .field-input.error {
-      border-color: var(--red);
-      box-shadow: 0 0 0 3px rgba(220,38,38,.12);
-    }
-
-    .field-error {
-      font-size: 12px;
-      color: var(--red);
-      font-weight: 500;
-      display: none;
-    }
-    .field-error.visible { display: block; }
-
-    /* Кнопки */
-    .actions { display: flex; flex-direction: column; gap: 10px; }
+    .actions { display: flex; flex-direction: column; gap: 8px; }
 
     .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
       width: 100%;
-      padding: 15px 24px;
-      border-radius: 14px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
       border: none;
-      transition: transform .18s ease, box-shadow .18s ease, opacity .18s;
-      letter-spacing: .2px;
+      transition: all .2s;
     }
-
-    .btn:disabled { opacity: .5; cursor: not-allowed; }
-    .btn:not(:disabled):hover  { transform: translateY(-2px); }
-    .btn:not(:disabled):active { transform: translateY(1px); }
 
     .btn-confirm {
-      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+      background: var(--purple-mid);
       color: #fff;
-      box-shadow: 0 6px 24px var(--purple-glow);
-    }
-    .btn-confirm:not(:disabled):hover {
-      box-shadow: 0 10px 32px rgba(107,33,168,.30);
-    }
-
-    .btn-gold-accent {
-      width: 8px; height: 8px;
-      background: var(--gold);
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-right: -2px;
     }
 
     .btn-decline {
       background: transparent;
       color: var(--muted);
-      border: 1.5px solid rgba(107,33,168,.15);
-      font-weight: 500;
+      border: 1px solid rgba(107,33,168,.2);
     }
-    .btn-decline:not(:disabled):hover {
-      background: var(--red-light);
-      border-color: rgba(220,38,38,.2);
-      color: var(--red);
-    }
-
-    .spinner {
-      width: 18px; height: 18px;
-      border: 2.5px solid rgba(255,255,255,.35);
-      border-top-color: #fff;
-      border-radius: 50%;
-      animation: spin .7s linear infinite;
-      display: none;
-    }
-    .loading .spinner  { display: block; }
-    .loading .btn-text { display: none; }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
 
     .footer-note {
-      margin-top: 20px;
-      font-size: 11.5px;
-      color: #C4B8D4;
-      text-align: center;
-      line-height: 1.6;
-    }
-    .footer-note a { color: var(--purple); text-decoration: none; opacity: .8; }
-    .footer-note a:hover { opacity: 1; text-decoration: underline; }
-
-    /* Состояния */
-    .state { display: none; }
-    .state.active { display: block; animation: rise .45s ease both; }
-
-    .state-inner {
-      padding: 40px 36px 36px;
-      text-align: center;
-    }
-
-    .state-icon {
-      font-size: 56px;
-      margin-bottom: 16px;
-      display: block;
-      animation: pop .5s cubic-bezier(.22,.68,0,1.3) both;
-    }
-
-    @keyframes pop {
-      from { transform: scale(0.5); opacity: 0; }
-      to   { transform: scale(1); opacity: 1; }
-    }
-
-    .state h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .state.confirmed h2 { color: var(--green); }
-    .state.declined  h2 { color: var(--muted); }
-
-    .state p {
+      margin-top: 15px;
+      font-size: 11px;
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
+      text-align: center;
+      line-height: 1.4;
     }
 
-    .state .tag {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .state.confirmed .tag {
-      background: rgba(5,150,105,.1);
-      color: var(--green);
-    }
-
-    .state.declined .tag {
-      background: var(--purple-light);
-      color: var(--purple);
-    }
+    /* Состояния успеха/отказа */
+    .state { display: none; padding: 40px 20px; text-align: center; }
+    .state.active { display: block; }
+    .state-icon { font-size: 48px; margin-bottom: 15px; display: block; }
+    .state h2 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 10px; }
+    .state p { font-size: 14px; color: var(--muted); }
   </style>
 </head>
 <body>
 
 <div class="card">
-
-  <!-- MAIN -->
   <div id="view-main">
-
     <div class="card-header">
       <div class="logo">
         <div class="logo-mark">📚</div>
-        <div class="logo-name">Lingv<span>Addict</span></div>
+        <div class="logo-name">LingvAddict</div>
       </div>
       <div class="hero-section">
         <div class="hero-badge">✨ Запрос на публикацию</div>
-        <h1>Разрешите поделиться успехом вашего ребёнка?</h1>
-        <p>Ваше видео — пример настоящего прогресса в английском. Хотим опубликовать его с вашего разрешения.</p>
+        <h1>Разрешите поделиться успехом ребёнка?</h1>
+        <p>Ваше видео — пример прогресса. Хотим опубликовать его с вашего согласия.</p>
       </div>
     </div>
 
     <div class="card-body">
-
       <div class="platforms">
         <div class="platforms-label">Где будет опубликовано</div>
         <div class="platform-grid">
-          <div class="platform-item"><span class="ico">🌐</span> Сайт LingvAddict</div>
-          <div class="platform-item"><span class="ico">📸</span> Instagram</div>
-          <div class="platform-item"><span class="ico">▶️</span> YouTube-канал</div>
-          <div class="platform-item"><span class="ico">✈️</span> Telegram-канал</div>
-          <div class="privacy-note"><span class="ico">🔒</span> Только имя и результат — без личных данных</div>
+          <div class="platform-item">🌐 Сайт</div>
+          <div class="platform-item">📸 Instagram</div>
+          <div class="platform-item">▶️ YouTube</div>
+          <div class="platform-item">✈️ Telegram</div>
+          <div class="privacy-note">🔒 Без личных данных (только имя и результат)</div>
         </div>
       </div>
 
       <div class="fields">
         <div class="field-group">
-          <label class="field-label" for="parentName">
-            Ваше имя и фамилия <span class="req">*</span>
-          </label>
-          <input
-            class="field-input"
-            id="parentName"
-            type="text"
-            placeholder="Например: Мария Иванова"
-            autocomplete="name"
-            maxlength="80"
-          >
-          <span class="field-error" id="parentNameError">Пожалуйста, укажите ваше имя</span>
+          <label class="field-label">Ваше имя и фамилия <span class="req">*</span></label>
+          <input class="field-input" id="parentName" type="text" placeholder="Например: Мария Иванова">
         </div>
-
         <div class="field-group">
-          <label class="field-label" for="childName">
-            Имя ребёнка <span class="opt">(необязательно)</span>
-          </label>
-          <input
-            class="field-input"
-            id="childName"
-            type="text"
-            placeholder="Например: Артём"
-            autocomplete="off"
-            maxlength="60"
-          >
+          <label class="field-label">Имя ребёнка</label>
+          <input class="field-input" id="childName" type="text" placeholder="Например: Артём">
         </div>
       </div>
 
       <div class="actions">
-        <button class="btn btn-confirm" id="btnConfirm" onclick="sendEmail('confirm')">
-          <div class="spinner"></div>
-          <span class="btn-text"><span class="btn-gold-accent"></span>&nbsp;Да, разрешаю публикацию</span>
-        </button>
-        <button class="btn btn-decline" id="btnDecline" onclick="sendEmail('decline')">
-          <div class="spinner"></div>
-          <span class="btn-text">Нет, не хочу публиковать</span>
-        </button>
+        <button class="btn btn-confirm" onclick="sendEmail('confirm')">Да, разрешаю публикацию</button>
+        <button class="btn btn-decline" onclick="sendEmail('decline')">Нет, не хочу публиковать</button>
       </div>
 
       <div class="footer-note">
-        Публикация только с вашего согласия. Передумали?<br>
-        Напишите нам — <a href="/cdn-cgi/l/email-protection#2a594942454546044643444d5c4b4e4e43495e6a4d474b434604494547"><span class="__cf_email__" data-cfemail="0c7f6f64636360226065626b7a6d6868656f784c6b616d6560226f6361">[email&#160;protected]</span></a>
+        Вопросы? Пишите нам: school.lingvaddict@gmail.com
       </div>
-
     </div>
   </div>
 
-  <!-- CONFIRMED -->
-  <div id="view-confirmed" class="state confirmed">
-    <div class="card-header" style="text-align:center; padding-bottom: 24px;">
-      <div class="logo" style="justify-content:center; margin-bottom:0;">
-        <div class="logo-mark">📚</div>
-        <div class="logo-name">Lingv<span>Addict</span></div>
-      </div>
-    </div>
-    <div class="state-inner">
-      <span class="state-icon">✅</span>
-      <h2>Спасибо за доверие!</h2>
-      <p>Ваш ответ зафиксирован. Мы уже получили уведомление и скоро опубликуем видео.</p>
-      <span class="tag">Если захотите что-то изменить — просто напишите нам 💙</span>
-    </div>
+  <div id="view-confirmed" class="state">
+    <span class="state-icon">✅</span>
+    <h2>Спасибо за доверие!</h2>
+    <p>Мы получили ваше согласие. Скоро видео появится в наших соцсетях!</p>
   </div>
 
-  <!-- DECLINED -->
-  <div id="view-declined" class="state declined">
-    <div class="card-header" style="text-align:center; padding-bottom: 24px;">
-      <div class="logo" style="justify-content:center; margin-bottom:0;">
-        <div class="logo-mark">📚</div>
-        <div class="logo-name">Lingv<span>Addict</span></div>
-      </div>
-    </div>
-    <div class="state-inner">
-      <span class="state-icon">🙏</span>
-      <h2>Понимаем, всё в порядке</h2>
-      <p>Ваш отказ принят. Видео опубликовано не будет. Уведомление уже у нас.</p>
-      <span class="tag">Если передумаете — напишите, мы всегда рядом</span>
-    </div>
+  <div id="view-declined" class="state">
+    <span class="state-icon">🙏</span>
+    <h2>Понимаем вас</h2>
+    <p>Ваш отказ принят. Видео публиковаться не будет.</p>
   </div>
-
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ⚙️ ВСТАВИТЬ РЕАЛЬНЫЕ КЛЮЧИ EMAILJS
+<script>
   const EMAILJS_PUBLIC_KEY  = '9FE6h2CX3GfOY_NU8';
   const EMAILJS_SERVICE_ID  = 'service_36c0dpk';
   const EMAILJS_TEMPLATE_ID = 'template_bjphp9o';
@@ -549,50 +321,30 @@
 
   emailjs.init(EMAILJS_PUBLIC_KEY);
 
-  function showState(name) {
-    document.getElementById('view-main').style.display = 'none';
-    document.getElementById('view-' + name).classList.add('active');
-  }
-
-  async function sendEmail(action) {
-    const parentNameInput = document.getElementById('parentName');
-    const parentNameError = document.getElementById('parentNameError');
-    const childNameInput  = document.getElementById('childName');
-
-    const parentName = parentNameInput.value.trim();
+  function sendEmail(action) {
+    const parentName = document.getElementById('parentName').value.trim();
     if (!parentName) {
-      parentNameInput.classList.add('error');
-      parentNameError.classList.add('visible');
-      parentNameInput.focus();
+      alert('Пожалуйста, введите ваше имя');
       return;
     }
-    parentNameInput.classList.remove('error');
-    parentNameError.classList.remove('visible');
 
-    const childName = childNameInput.value.trim() || '—';
+    const childName = document.getElementById('childName').value.trim() || '—';
     const isConfirm = action === 'confirm';
 
-    const btnConfirm = document.getElementById('btnConfirm');
-    const btnDecline = document.getElementById('btnDecline');
-    btnConfirm.disabled = true;
-    btnDecline.disabled = true;
-    const activeBtn = isConfirm ? btnConfirm : btnDecline;
-    activeBtn.classList.add('loading');
-
-    const templateParams = {
-      to_email:    SCHOOL_EMAIL,
+    const params = {
+      to_email: SCHOOL_EMAIL,
       parent_name: parentName,
-      child_name:  childName,
-      action:      isConfirm ? 'СОГЛАСИЕ ✅' : 'ОТКАЗ ❌',
-      action_text: isConfirm
-        ? 'Родитель дал согласие на публикацию видеоотзыва.'
-        : 'Родитель отказал в публикации видеоотзыва.',
-      timestamp:   new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Yerevan' }),
+      child_name: childName,
+      action: isConfirm ? 'СОГЛАСИЕ ✅' : 'ОТКАЗ ❌',
+      timestamp: new Date().toLocaleString()
     };
 
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-      showState(isConfirm ? 'confirmed' : 'declined');
-    } catch (err) {
-      console.error('EmailJS error:', err);
-      btnConfirm.disabled = fals
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+      .then(() => {
+        document.getElementById('view-main').style.display = 'none';
+        document.getElementById(isConfirm ? 'view-confirmed' : 'view-declined').classList.add('active');
+      });
+  }
+</script>
+</body>
+</html>
